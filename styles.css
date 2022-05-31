@@ -20,7 +20,7 @@
     
 }
 
-.card{
+.card-body{
     background-color: antiquewhite;
     padding: 1rem;
     border: 1px solid black;
@@ -84,3 +84,23 @@ label{
     width: 300px;
 }
 
+.remove-btn{
+    width: 7rem;
+    padding: .4rem;
+    background-color: aqua;
+    border: 1px solid black;
+}
+
+.read-btn{
+    width: 7rem;
+    padding: .4rem;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.unread-btn{
+    width: 7rem;
+    padding: .4rem;
+    border: 1px solid black;
+    background-color: red;
+}
