@@ -50,27 +50,16 @@ function createCard(book, index){
   
   //add content to the card 
   const title = document.createElement('h4');
-  title.textContent = `Title: ${book.title}`;
+  title.textContent = book.title;
   card.appendChild(title); 
 
   const author = document.createElement('h4');
-  author.textContent = `Author: ${book.author}`;
+  author.textContent = book.author;
   card.appendChild(author);
 
   const pages = document.createElement('h4');
-  pages.textContent = `Pages: ${book.pages}`;
+  pages.textContent = `${book.pages} pages`;
   card.appendChild(pages);
-
-  const removeBtn = document.createElement('div');
-  removeBtn.textContent = 'Remove';
-  removeBtn.classList.add('remove-btn');
-
-  removeBtn.addEventListener('click', function(){
-  myLibrary.splice(index, 1);
-  clearGrid();
-  loadLibrary(); 
-  })
-  card.append(removeBtn);
 
   const readStatusBtn = document.createElement('div');
 
@@ -105,6 +94,22 @@ function createCard(book, index){
       
     
   })
+
+
+
+
+  const removeBtn = document.createElement('div');
+  removeBtn.textContent = 'Remove';
+  removeBtn.classList.add('remove-btn');
+
+  removeBtn.addEventListener('click', function(){
+  myLibrary.splice(index, 1);
+  clearGrid();
+  loadLibrary(); 
+  })
+  card.append(removeBtn);
+
+ 
   
 
 
@@ -138,6 +143,13 @@ function clearGrid(){
 }
 
 
+const book1 = new Book ("Harry Potter", "J.K. Rowling", "223", true);
+const book2 = new Book ("Principles", "Ray Dalio", "592", false);
+const book3 = new Book ("Psycho-Cybernetics", "Maxwell Maltz", "288", true);
+
+myLibrary = [book1, book2, book3];
+
+loadLibrary();
 
 
 
