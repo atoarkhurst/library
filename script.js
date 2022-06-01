@@ -50,9 +50,9 @@ function createCard(book, index){
   
   //add content to the card 
   const title = document.createElement('h4');
-  title.textContent = book.title;
+  title.textContent = `"${book.title}"`
   card.appendChild(title); 
-
+console.log(book);
   const author = document.createElement('h4');
   author.textContent = book.author;
   card.appendChild(author);
@@ -63,7 +63,7 @@ function createCard(book, index){
 
   const readStatusBtn = document.createElement('div');
 
-  console.log(book.read);
+
    
   if(book.read === true){
 
@@ -128,10 +128,15 @@ newBookBtn.addEventListener('click', function(){
 
 const submitBtn = document.querySelector('.submit-btn');
 submitBtn.addEventListener('click', function(e){
-  document.querySelector('form').classList.remove('active');
+ 
   addBookToLibrary();
   clearGrid();
   loadLibrary();
+  document.querySelector('form').classList.remove('active');
+  const input = document.querySelectorAll('#title, #author, #pages, #read');
+  input.forEach(input => {
+    input.value = ''
+  })
   e.preventDefault();
 } )
 
@@ -143,11 +148,9 @@ function clearGrid(){
 }
 
 
-const book1 = new Book ("Harry Potter", "J.K. Rowling", "223", true);
 const book2 = new Book ("Principles", "Ray Dalio", "592", false);
-const book3 = new Book ("Psycho-Cybernetics", "Maxwell Maltz", "288", true);
 
-myLibrary = [book1, book2, book3];
+myLibrary = [book2];
 
 loadLibrary();
 
